@@ -13,11 +13,14 @@ import lombok.ToString;
 public class Student {
 	@Setter(value = AccessLevel.NONE)
 	private long ids;
-	
+
 	private String name;
 	private String surname;
-	
+
 	public Student(String name, String surname) {
-		
+		setName(name);
+		setSurname(surname);
+
 	}
+
 }
