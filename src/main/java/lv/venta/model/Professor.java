@@ -18,6 +18,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lv.venta.model.enumarator.Degree;
 
 @Getter
 @Setter
@@ -45,17 +46,17 @@ public class Professor {
 	@Column(name = "Surname")
 	private String surname;
 
-	@NotEmpty
+	
 	@NotNull
 	@Column(name = "Degree")
 	@Enumerated(EnumType.STRING)
-	private lv.venta.model.enumarator.Degree degree;
+	private Degree degree;
 	
 	@OneToOne(mappedBy = "professor")
 	@ToString.Exclude
 	private Course course;
 
-	public Professor(String name, String surname, lv.venta.model.enumarator.Degree degree) {
+	public Professor(String name, String surname, Degree degree) {
 		setName(name);
 		setSurname(surname);
 		setDegree(degree);

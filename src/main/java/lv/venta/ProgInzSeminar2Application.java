@@ -31,7 +31,7 @@ public class ProgInzSeminar2Application {
 			@Override
 			public void run(String... args) throws Exception {
 				Professor p1 = new Professor("Karina", "Šķirmante", Degree.Master);
-				Professor p2 = new Professor("Karlis", "immers", Degree.Master);
+				Professor p2 = new Professor("Karlis", "Immers", Degree.Master);
 				profRepo.saveAll(Arrays.asList(p1,p2));
 				Student s1 = new Student("Mikus", "Ābele");
 				Student s2 = new Student("Ivo", "Vilnis");
