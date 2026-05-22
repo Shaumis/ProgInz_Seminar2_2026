@@ -7,6 +7,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -48,6 +50,10 @@ public class Professor {
 	@Column(name = "Degree")
 	@Enumerated(EnumType.STRING)
 	private lv.venta.model.enumarator.Degree degree;
+	
+	@OneToOne(mappedBy = "professor")
+	@ToString.Exclude
+	private Course course;
 
 	public Professor(String name, String surname, lv.venta.model.enumarator.Degree degree) {
 		setName(name);
