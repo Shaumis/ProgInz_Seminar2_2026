@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import lv.venta.model.Course;
 import lv.venta.model.Grade;
@@ -22,6 +23,7 @@ public class ProgInzSeminar2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(ProgInzSeminar2Application.class, args);
 	}
+	@Bean
 	public CommandLineRunner saveDataInDB(IStudentRepo studRepo, IProfessorRepo profRepo, IGradeRepo gradRepo, ICourseRepo courRepo) {
 		
 		return new CommandLineRunner() {
