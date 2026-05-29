@@ -1,0 +1,43 @@
+package lv.venta.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import lv.venta.model.Student;
+import lv.venta.service.ICRUDStudentService;
+
+@Controller
+@RequestMapping("/student/crud")
+public class CRUDStudentController {
+	@Autowired
+	private ICRUDStudentService studService;
+
+	@GetMapping("/all")
+	public String getControllerAllStudents(Model model) {
+		try {
+			model.addAttribute("package", studService.retrieveAll());
+			return "show-all-students";
+		} catch (Exception e) {
+			return "error-page";
+		}
+
+	}
+
+	@GetMapping("/delete/{id}")
+	public String deleteStudentById(@PathVariable(name = "id") long id, Model model) {
+		try {
+			studService.deleteById(id);
+			model.addAttribute("package", studService.retrieveAll());
+			return "show-all-students";
+		} catch (Exception e) {
+			model.addAttribute("package", e.getMessage());
+			return "error-page";
+		}
+	}
+}
