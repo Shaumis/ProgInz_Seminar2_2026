@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import lv.venta.model.Course;
 import lv.venta.model.Grade;
+import lv.venta.model.Student;
 import lv.venta.model.enumarator.Degree;
 import lv.venta.repo.ICourseRepo;
 import lv.venta.repo.IGradeRepo;
@@ -72,6 +73,18 @@ public class FilterStuffImpl implements IFilterStuff {
 		if (results.isEmpty()) {
 			throw new Exception("Nav neviens kurss ar professors ar šo grādu");
 		}
+		return results;
+	}
+
+	@Override
+	public ArrayList<Student> filterStudentsByGradesUnder4() throws Exception {
+		if(gradRepo.count() == 0) {
+			throw new Exception("Nav Atzīmju :(");
+		}
+		if(studRepo.count() == 0) {
+			throw new Exception("Nav Studentu :(");
+		}//findByGradeAtzLessThan(4);
+		ArrayList<Student> results = studRepo.findByGradesAtzLessThan(4);
 		return results;
 	}
 
