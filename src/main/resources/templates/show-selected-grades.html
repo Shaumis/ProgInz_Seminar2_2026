@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+	
+<body>
+	
+	<h1>Atzīmes:</h1>
+	<table border="1px">
+		<tr>
+			<td>Id</td>
+			<td>Vērtība</td>
+			<td>Vārds</td>
+			<td>Kurss</td>
+		</tr>
+		<th:block th:each="grad : ${package}">
+		<tr>
+			<td th:text="${grad.idg}" ></td>
+			<td th:text="${grad.atz}" ></td>
+			<td th:text="${grad.student.name}" ></td>
+			<td th:text="${grad.course.title}" ></td>
+		</tr>
+		</th:block>
+	</table>
+	
+
+	
+</body>
+
+
+
+</html>

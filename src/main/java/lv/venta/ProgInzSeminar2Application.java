@@ -40,7 +40,7 @@ public class ProgInzSeminar2Application {
 				Course c2 = new Course("Web tehnoloģijas", 3, p2);
 				courRepo.saveAll(Arrays.asList(c1,c2));
 				Grade g1 = new Grade(10, s1, c1);
-				Grade g2 = new Grade(9, s2, c2);
+				Grade g2 = new Grade(9, s2, c1);
 				gradRepo.saveAll(Arrays.asList(g1,g2));
 			}
 		};
